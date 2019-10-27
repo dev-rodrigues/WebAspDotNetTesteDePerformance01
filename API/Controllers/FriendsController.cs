@@ -52,7 +52,19 @@ namespace API.Controllers {
             if(size > 0) {
                 return Ok(localized);
             }
-            return BadRequest("");
+            return BadRequest("Error finding friends");
+        }
+
+        [AllowAnonymous]
+        [Route("Friends")]
+        [HttpGet]
+        public IHttpActionResult Friends(int id) {
+            Friend friend = friendService.FindById(id);
+
+            if(friend != null) {
+                return Ok(friend);
+            }
+            return BadRequest("Error finding friend");
         }
 
     }

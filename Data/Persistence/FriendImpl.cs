@@ -32,9 +32,8 @@ namespace Data.Persistence {
             return friends;
         }
 
-        public Friend FindById(string email) {
-            throw new NotImplementedException();
+        public Friend FindById(int id) {
+            return db.Friends.Find(id);
         }
-
     }
 }

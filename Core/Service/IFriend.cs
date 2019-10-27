@@ -10,7 +10,7 @@ namespace Core.Interface {
 
         bool Create(Friend obj);
 
-        Friend FindById(string email);
+        Friend FindById(int id);
 
         List<Friend> FindAll();
     }
