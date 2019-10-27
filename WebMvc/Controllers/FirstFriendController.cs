@@ -14,23 +14,32 @@ namespace WebMvc.Controllers {
 
 
         // GET: FirstFriend
-        public async Task<ActionResult> Index() {
+        public ActionResult Index() {
 
             List<FriendViewModel> friends = new List<FriendViewModel>();
+            friends.Add(
+                new FriendViewModel(1, "Carlos", "Santos", "carlos@gmail.com", DateTime.Now)                
+            );
 
-            using(var client = new HttpClient()) {
-                client.BaseAddress = new Uri(local);
-                var response = await client.GetAsync("Friend/Friends");
+            friends.Add(
+                new FriendViewModel(2, "Yuri", "Santos", "carlos@gmail.com", DateTime.Now)
+            );
+
+            //using(var client = new HttpClient()) {
+            //    client.BaseAddress = new Uri(local);
+            //    var response = await client.GetAsync("Friend/Friends");
 
 
-                if(response.IsSuccessStatusCode) {
-                    Console.WriteLine(response.Content);
+            //    if(response.IsSuccessStatusCode) {
+            //        Console.WriteLine(response.Content);
 
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    return RedirectToAction("Index", "FirstFriend");
-                }
-                return View("Error");
-            }            
+            //        var responseContent = await response.Content.ReadAsStringAsync();
+            //        return RedirectToAction("Index", "FirstFriend");
+            //    }
+            //    return View("Error");
+            //}     
+
+            return View(friends.ToList());
         }
 
         // GET: FirstFriend/Details/5
