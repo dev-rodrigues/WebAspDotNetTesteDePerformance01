@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Core.Interface {
     public interface IFriend {
 
-        bool CreateAsync(Friend obj);
+        bool Create(Friend obj);
 
-        Friend FindByEmail(string email);
+        Friend FindById(string email);
 
         List<Friend> FindAll();
     }

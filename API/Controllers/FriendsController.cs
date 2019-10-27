@@ -34,17 +34,25 @@ namespace API.Controllers {
                 Email = model.Email,
             };
 
-            var created = false;
-
-            if(ModelState.IsValid) {
-                created = friendService.CreateAsync(friend);
-            }
-
-            if(created) {
+            if(ModelState.IsValid && friendService.Create(friend)) {
                 return Ok($"Successfully Created Friend");
             }
 
-            return BadRequest("Error ao criar um Amigo");
+            return BadRequest("error creating user");
+        }
+
+        [AllowAnonymous]
+        [Route("Friends")]
+        [HttpGet]
+        public IHttpActionResult Friends() {
+            List<Friend> localized = new List<Friend>();
+            localized.AddRange(friendService.FindAll());
+            var size = localized.Count;
+
+            if(size > 0) {
+                return Ok(localized);
+            }
+            return BadRequest("");
         }
 
     }

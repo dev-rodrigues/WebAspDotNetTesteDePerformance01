@@ -13,7 +13,7 @@ namespace Data.Persistence {
 
         private DataBaseContext db = new DataBaseContext();
 
-        public bool CreateAsync(Friend obj) {
+        public bool Create(Friend obj) {
 
             try {
                 db.Friends.Add(obj);
@@ -26,22 +26,10 @@ namespace Data.Persistence {
             return false;
         }
 
-
-        //    if(ModelState.IsValid) {
-        //            db.Friends.Add(friend);
-        //            await db.SaveChangesAsync();
-        //            return Ok("Criado com sucesso");
-        //}
-
-        //Task<Friend> IFriend.CreateAsync(Friend obj) {
-        //    db.Friends.Add(obj);
-        //    var Id = db.SaveChanges();
-        //    Task<Friend> t = db.Friends.Find(Id);
-        //    return t;
-        //}
-
         public List<Friend> FindAll() {
-            throw new NotImplementedException();
+            List<Friend> friends = new List<Friend>();
+            friends.AddRange(db.Friends.ToList());
+            return friends;
         }
 
         public Friend FindById(string email) {
