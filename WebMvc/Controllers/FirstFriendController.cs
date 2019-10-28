@@ -37,9 +37,11 @@ namespace WebMvc.Controllers {
             //        return RedirectToAction("Index", "FirstFriend");
             //    }
             //    return View("Error");
-            //}     
+            //}
 
-            return View(friends.ToList());
+            TempData["Friends"] = friends;
+
+            return View();
         }
 
         // GET: FirstFriend/Details/5
