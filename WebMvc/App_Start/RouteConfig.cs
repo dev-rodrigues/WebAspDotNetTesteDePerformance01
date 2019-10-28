@@ -14,7 +14,7 @@ namespace WebMvc {
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new {
-                    controller = "Home", action = "Index", id = UrlParameter.Optional
+                    controller = "FirstFriend", action = "Index", id = UrlParameter.Optional
                 }
             );
         }
