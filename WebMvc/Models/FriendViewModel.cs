@@ -26,12 +26,17 @@ namespace WebMvc.Models {
             get; set;
         }
 
+        public bool Selected {
+            get; set;
+        }
+
         public FriendViewModel(int Id, string Name, string LastName, string Email, DateTime BirthDate) {
             this.Id = Id;
             this.Name = Name;
             this.LastName = LastName;
             this.Email = Email;
             this.BirthDate = BirthDate;
+            this.Selected = false;
         }
 
         public List<FriendViewModel> FriendsModels(List<Friend> friends) {

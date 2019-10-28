@@ -1,26 +1,26 @@
 ﻿@using WebMvc.Models
 @model IEnumerable<WebMvc.Models.FriendViewModel>
 
-@{
-    ViewBag.Title = "Index";    
-}
 
-<h2>Index</h2>
+<h2>Primeiro Formulario</h2>
 
-<table class="table table-condensed table-hover">
-    <thead>
-        <tr>
-            <th> Name </th>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var friend in (IEnumerable<FriendViewModel>)TempData["Friends"]) {
+<div class="form-horizontal">
+    <table class="table table-condensed table-hover">
+        <thead>
             <tr>
+                <th> Name </th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var friend in (IEnumerable<FriendViewModel>)TempData["Friends"]) {
+            <tr>
+                <td> @Html.RadioButton("TESTE", friend.Id, new { id = friend.Id}) </td>
                 <td> @friend.Name </td>
                 <td> @friend.LastName </td>
                 <td> @friend.Email </td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>
