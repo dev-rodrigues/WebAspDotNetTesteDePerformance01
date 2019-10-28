@@ -1,20 +1,26 @@
-﻿<!DOCTYPE html>
+﻿@using WebMvc.Models
 @model IEnumerable<WebMvc.Models.FriendViewModel>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Lista 1</title>
-</head>
+@{
+    ViewBag.Title = "Index";    
+}
 
-<body>
-    <title>Lista simplificada</title>
-    <ul>
-        @if(TempData["Friends"] != null) {
-            foreach(var aluno in TempData["Friends"] as List<string>) {
-                Console.WriteLine(aluno.Name);
-            }
+<h2>Index</h2>
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var friend in (IEnumerable<FriendViewModel>)TempData["Friends"]) {
+            <tr>
+                <td> @friend.Name </td>
+                <td> @friend.LastName </td>
+                <td> @friend.Email </td>
+            </tr>
         }
-    </ul>
-</body>
-</html>
+    </tbody>
+</table>
