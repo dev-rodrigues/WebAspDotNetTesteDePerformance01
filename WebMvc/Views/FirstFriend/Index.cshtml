@@ -8,14 +8,13 @@
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <th> Name </th>
-                <td></td>
+                <td>Lista</td>
             </tr>
         </thead>
         <tbody>
             @foreach(var friend in (IEnumerable<FriendViewModel>)TempData["Friends"]) {
             <tr>
-                <td> @Html.RadioButton("TESTE", friend.Id, new { id = friend.Id}) </td>
+                <td> @Html.CheckBox("Selected", false) </td>
                 <td> @friend.Name </td>
                 <td> @friend.LastName </td>
                 <td> @friend.Email </td>

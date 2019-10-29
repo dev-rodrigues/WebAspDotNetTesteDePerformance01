@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebMvc.Models.FriendViewModel>
+@using WebMvc.Models
+
+<h2>Segundo Formulario</h2>
+
+<div class="form-horizontal">
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <td>Lista</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var friend in (IEnumerable<FriendViewModel>)TempData["Friends2"])
+            {
+                <tr>
+                    <td> @Html.CheckBox("Selected", false) </td>
+                    <td> @friend.Name </td>
+                    <td> @friend.LastName </td>
+                    <td> @friend.BirthDate </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

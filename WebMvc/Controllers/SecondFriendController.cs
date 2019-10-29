@@ -1,40 +1,35 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebMvc.Models;
 
-namespace WebMvc.Controllers {
-    public class FirstFriendController : Controller {
-
-        private const string local = "http://localhost:50762/api/";
-
-        // GET: FirstFriend
-        public ActionResult Index() {
-
+namespace WebMvc.Controllers
+{
+    public class SecondFriendController : Controller
+    {
+        // GET: SecondFriend
+        public ActionResult Index()
+        {
             List<FriendViewModel> friends = new List<FriendViewModel>();
             friends.Add(
-                new FriendViewModel(1, "Carlos", "Santos", "carlos@gmail.com", DateTime.Now)
+                new FriendViewModel(1, "Aristoteles", "A", "carlos@gmail.com", DateTime.Now)
             );
 
             friends.Add(
-                new FriendViewModel(2, "Yuri", "Santos", "carlos@gmail.com", DateTime.Now)
+                new FriendViewModel(2, "Jamal", "B", "carlos@gmail.com", DateTime.Now)
             );
 
             friends.Add(
-                new FriendViewModel(2, "Seu madruga", "Santos", "carlos@gmail.com", DateTime.Now)
+                new FriendViewModel(2, "Toninho", "C", "carlos@gmail.com", DateTime.Now)
             );
 
-            TempData["Friends"] = friends;
+            TempData["Friends2"] = friends;
 
             return View();
 
-        //public async Task<ActionResult> Index() {
+
             //using(var client = new HttpClient()) {
             //    client.BaseAddress = new Uri(local);
             //    var response = await client.GetAsync("Friend/Friends");
@@ -51,9 +46,10 @@ namespace WebMvc.Controllers {
             //
 
             //return RedirectToAction("Index", "FirstFriend");
+
             //}
+
             //return View("Error");
         }
-        // return View();
     }
 }
