@@ -14,43 +14,43 @@ namespace WebMvc.Controllers {
 
         private const string local = "http://localhost:50762/api/";
 
-
-
         // GET: FirstFriend
-        public async Task<ActionResult> Index() {
+        //public async Task<ActionResult> Index() {
+        public ActionResult Index() {
 
-            //List<FriendViewModel> friends = new List<FriendViewModel>();
-            //friends.Add(
-            //    new FriendViewModel(1, "Carlos", "Santos", "carlos@gmail.com", DateTime.Now)                
-            //);
+            List<FriendViewModel> friends = new List<FriendViewModel>();
+            friends.Add(
+                new FriendViewModel(1, "Carlos", "Santos", "carlos@gmail.com", DateTime.Now)
+            );
 
-            //friends.Add(
-            //    new FriendViewModel(2, "Yuri", "Santos", "carlos@gmail.com", DateTime.Now)
-            //);
+            friends.Add(
+                new FriendViewModel(2, "Yuri", "Santos", "carlos@gmail.com", DateTime.Now)
+            );
 
-            using(var client = new HttpClient()) {
-                client.BaseAddress = new Uri(local);
-                var response = await client.GetAsync("Friend/Friends");
+            TempData["Friends"] = friends;
 
-
-                if(response.IsSuccessStatusCode) {
-                    Console.WriteLine(response.Content);
-
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    
-
-                    var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
+            return View();
 
 
+            //using(var client = new HttpClient()) {
+            //    client.BaseAddress = new Uri(local);
+            //    var response = await client.GetAsync("Friend/Friends");
 
-                    //TempData["Friends"] = friends;
 
-                    return RedirectToAction("Index", "FirstFriend");
-                }
-                return View("Error");
-            }
-            // return View();
+            //    if(response.IsSuccessStatusCode) {
+            //        Console.WriteLine(response.Content);
+
+            //        var responseContent = await response.Content.ReadAsStringAsync();
+
+
+            //        var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
+
+            //
+
+            //return RedirectToAction("Index", "FirstFriend");
+            //}
+            //return View("Error");
         }
-
+        // return View();
     }
 }
