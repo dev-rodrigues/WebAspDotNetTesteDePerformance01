@@ -12,20 +12,6 @@ namespace WebMvc.Controllers
         // GET: SecondFriend
         public ActionResult Index()
         {
-            List<FriendViewModel> friends = new List<FriendViewModel>();
-            friends.Add(
-                new FriendViewModel(1, "Aristoteles", "A", "carlos@gmail.com", DateTime.Now)
-            );
-
-            friends.Add(
-                new FriendViewModel(2, "Jamal", "B", "carlos@gmail.com", DateTime.Now)
-            );
-
-            friends.Add(
-                new FriendViewModel(2, "Toninho", "C", "carlos@gmail.com", DateTime.Now)
-            );
-
-            TempData["Friends2"] = friends;
 
             return View();
 

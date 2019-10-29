@@ -31,7 +31,7 @@ namespace WebMvc.Controllers {
             );
 
             TempData["Friends"] = friends;
-
+            
             return View();
 
         //public async Task<ActionResult> Index() {
