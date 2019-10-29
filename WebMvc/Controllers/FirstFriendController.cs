@@ -37,7 +37,7 @@ namespace WebMvc.Controllers {
                     Console.WriteLine(response.Content);
 
                     var responseContent = await response.Content.ReadAsStringAsync();
-
+                    
 
                     var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
 
