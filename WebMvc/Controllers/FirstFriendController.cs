@@ -43,7 +43,6 @@ namespace WebMvc.Controllers {
 
                     var responseContent = await response.Content.ReadAsStringAsync();
 
-
                     var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
 
                 }
