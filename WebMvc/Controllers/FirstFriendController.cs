@@ -15,7 +15,7 @@ namespace WebMvc.Controllers {
         private const string local = "http://localhost:50762/api/";
 
         // GET: FirstFriend
-        public ActionResult Index() {
+        public async Task<ActionResult> Index() {
 
             List<FriendViewModel> friends = new List<FriendViewModel>();
             friends.Add(
@@ -32,28 +32,23 @@ namespace WebMvc.Controllers {
 
             TempData["Friends"] = friends;
 
-            return View();
 
-        //public async Task<ActionResult> Index() {
-            //using(var client = new HttpClient()) {
-            //    client.BaseAddress = new Uri(local);
-            //    var response = await client.GetAsync("Friend/Friends");
+            using(var client = new HttpClient()) {
+                client.BaseAddress = new Uri(local);
+                var response = await client.GetAsync("Friend/Friends");
 
 
-            //    if(response.IsSuccessStatusCode) {
-            //        Console.WriteLine(response.Content);
+                if(response.IsSuccessStatusCode) {
+                    Console.WriteLine(response.Content);
 
-            //        var responseContent = await response.Content.ReadAsStringAsync();
+                    var responseContent = await response.Content.ReadAsStringAsync();
 
 
-            //        var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
+                    var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
 
-            //
-
-            //return RedirectToAction("Index", "FirstFriend");
-            //}
-            //return View("Error");
+                }
+                return RedirectToAction("Index", "FirstFriend");
+            }
         }
-        // return View();
     }
 }
