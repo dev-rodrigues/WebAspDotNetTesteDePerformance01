@@ -15,27 +15,6 @@ namespace WebMvc.Controllers
 
             return View();
 
-
-            //using(var client = new HttpClient()) {
-            //    client.BaseAddress = new Uri(local);
-            //    var response = await client.GetAsync("Friend/Friends");
-
-
-            //    if(response.IsSuccessStatusCode) {
-            //        Console.WriteLine(response.Content);
-
-            //        var responseContent = await response.Content.ReadAsStringAsync();
-
-
-            //        var root = JsonConvert.DeserializeObject<FriendViewModel>(responseContent);
-
-            //
-
-            //return RedirectToAction("Index", "FirstFriend");
-
-            //}
-
-            //return View("Error");
         }
     }
 }

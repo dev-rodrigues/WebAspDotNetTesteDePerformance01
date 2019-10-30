@@ -30,11 +30,17 @@ namespace WebMvc.Controllers {
 
                     friends = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
 
-                    TempData["Friends"] = friends;
-
                 }
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult Index(FriendViewModel friend) {
+
+            ViewBag.Selected = friend.Selected;
+
+            return View();
         }
     }
 }
