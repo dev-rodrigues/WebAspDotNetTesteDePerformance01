@@ -30,3 +30,8 @@
 
 	end
 </p>
+
+
+<p>
+	Caso queira diminuir o numero de amigos, basta ajustar o total desejado na variavel `@total`	
+<p>
