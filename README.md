@@ -20,13 +20,13 @@
 	<li>declare @Email		as nvarchar(256) = 'teste@teste.com';</li>
 	<li>declare @BirthDate	as datetime = getdate();</li>
 
-while(@count <= @total) 
-begin
+	while(@count <= @total) 
+	begin
 
 	insert into Friends (Name, LastName, Email, BirthDate)
 	values (CONCAT(@Name, @count), CONCAT(@LastName, @count), CONCAT(@Email, @count), GETDATE())
 
 	set @count += 1
 
-end
+	end
 </p>
