@@ -16,7 +16,7 @@ declare @LastName	as nvarchar(256) = 'teste';
 declare @Email		as nvarchar(256) = 'teste@teste.com';
 declare @BirthDate	as datetime = getdate();
 
-while(@count <= @total) 
+	while(@count <= @total) 
 begin
 
 	insert into Friends (Name, LastName, Email, BirthDate)
