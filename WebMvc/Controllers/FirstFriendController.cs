@@ -29,9 +29,11 @@ namespace WebMvc.Controllers {
 
                     var responseContent = await response.Content.ReadAsStringAsync();
 
-                    var root = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
+                    var data = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
 
-
+                    foreach(FriendViewModel friend in data) {
+                        friends.Add(friend);
+                    }
                     
                     TempData["Friends"] = friends;
                     
