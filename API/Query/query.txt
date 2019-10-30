@@ -1,5 +1,5 @@
 ﻿
--- Caso queira apagar todos os dados --
+-- Para apagar todos os dados --
 --delete			
 --from		Friends
 
