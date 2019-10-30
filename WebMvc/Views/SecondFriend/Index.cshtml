@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<WebMvc.Models.FriendViewModel>
 @using WebMvc.Models
+@{ 
+    var friends = TempData.Peek("Friends");
+}
 
 <h2>Segundo Formulario</h2>
 
@@ -11,10 +14,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var friend in (IEnumerable<FriendViewModel>)TempData["Friends2"])
+            @foreach (var friend in (IEnumerable<FriendViewModel>)friends)
             {
                 <tr>
-                    <td> @Html.CheckBox("Selected", false) </td>
+                    <td> @Html.CheckBox("Selected", friend.Selected) </td>
                     <td> @friend.Name </td>
                     <td> @friend.LastName </td>
                     <td> @friend.BirthDate </td>
