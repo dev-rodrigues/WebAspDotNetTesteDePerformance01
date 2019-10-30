@@ -1,18 +1,17 @@
 # WebAspDotNetTesteDePerformance01
 
 ## Para apagar todos os dados --
---delete			
---from		Friends
+<p> delete from Friends </p>
 
 ## Para executar:
 <p>
--- Va em exibir > Sql server object
--- Localize `Data.Context.DataBaseContext`
--- Btn direito > `New query`
--- Execute o seguinte script
+	<li>Va em exibir > Sql server object</li>
+	<li>Localize `Data.Context.DataBaseContext`</li>
+	<li>Btn direito > `New query`</li>
+	<li>Execute o seguinte script</li>
 </p>
 
-<h1>scrip</h1>
+<h1>Scrip</h1>
 <p>
 declare @count		as int = 0;
 declare @total		as int = 30;
