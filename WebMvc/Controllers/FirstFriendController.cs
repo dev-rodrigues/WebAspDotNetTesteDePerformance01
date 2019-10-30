@@ -17,26 +17,18 @@ namespace WebMvc.Controllers {
         // GET: FirstFriend
         public async Task<ActionResult> Index() {
 
-            List<FriendViewModel> friends = new List<FriendViewModel>();
-            
             using(var client = new HttpClient()) {
                 client.BaseAddress = new Uri(local);
                 var response = await client.GetAsync("Friend/Friends");
-
 
                 if(response.IsSuccessStatusCode) {
                     Console.WriteLine(response.Content);
 
                     var responseContent = await response.Content.ReadAsStringAsync();
 
-                    var data = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
+                    List<FriendViewModel> friends = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
 
-                    foreach(FriendViewModel friend in data) {
-                        friends.Add(friend);
-                    }
-                    
                     TempData["Friends"] = friends;
-                    
 
                 }
                 return RedirectToAction("Index", "FirstFriend");
