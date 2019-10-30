@@ -1,9 +1,9 @@
 ﻿
 -- Para apagar todos os dados --
---delete			
---from		Friends
+--delete from Friends
 
 -- Para executar:
+
 -- Va em exibir > Sql server object
 -- Localize `Data.Context.DataBaseContext`
 -- Btn direito > `New query`
