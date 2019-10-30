@@ -13,12 +13,12 @@
 
 <h1>Scrip</h1>
 <p>
-	<li>declare @count		as int = 0;</li>
-	<li>declare @total		as int = 30;</li>
-	<li>declare @Name		as nvarchar(256) = 'TESTE';</li>
-	<li>declare @LastName	as nvarchar(256) = 'teste';</li>
-	<li>declare @Email		as nvarchar(256) = 'teste@teste.com';</li>
-	<li>declare @BirthDate	as datetime = getdate();</li>
+	declare @count		as int = 0;</br>
+	declare @total		as int = 30;</br>
+	declare @Name		as nvarchar(256) = 'TESTE';</br>
+	declare @LastName	as nvarchar(256) = 'teste';</br>
+	declare @Email		as nvarchar(256) = 'teste@teste.com';</br>
+	declare @BirthDate	as datetime = getdate();</br>
 
 	while(@count <= @total) 
 	begin
