@@ -30,6 +30,10 @@ namespace WebMvc.Models {
             get; set;
         }
 
+        public FriendViewModel() {
+
+        }
+
         public FriendViewModel(int Id, string Name, string LastName, string Email, DateTime BirthDate) {
             this.Id = Id;
             this.Name = Name;

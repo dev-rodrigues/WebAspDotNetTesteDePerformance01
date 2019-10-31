@@ -2,15 +2,20 @@
 
 <h2>Primeiro Formulario</h2>
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
-{
+@using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post)) {
     <b>Lista</b>
-    <br />
+    @*<br />
     <span>Friend </span> @Html.CheckBoxFor(model => model.Selected)
     <br />
-    <span>Teste </span> @Html.CheckBoxFor(model => model.Selected)
+    <span>Teste </span> @Html.CheckBoxFor(model => model.Selected)*@
 
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Salvar" class="btn btn-default" />
+        </div>
+    </div>
 }
 
 
-<a class="btn btn-link" href="../SecondFriend/Index">Segunda pagina</a>
