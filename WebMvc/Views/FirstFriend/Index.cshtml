@@ -7,7 +7,7 @@
 
 <h2>Primeiro Formulario</h2>
 
-@using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post, new {lista = listaPessoas})) {
+@using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post)) {
     <b>Lista</b>
     
     <table class="table table-condensed table-hover">
@@ -17,7 +17,7 @@
         <tbody>
             @foreach(var friend in listaPessoas) {
                 <tr>
-                    <td> @Html.CheckBox("Selected", false) </td>
+                    <td> @Html.CheckBox("Selected", $"{friend.Selected}") </td>
                     <td> @friend.Name </td>
                     <td> @friend.LastName </td>
                     <td> @friend.Email </td>
