@@ -1,15 +1,33 @@
-﻿@model WebMvc.Models.FriendViewModel
+﻿@using WebMvc.Models
+@model IEnumerable<WebMvc.Models.FriendViewModel>
+
+@*@{
+        var listaPessoas = ViewBag.Friends;
+    }*@
 
 <h2>Segundo Formulario</h2>
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
-{
-    <b>Lista</b>
-    <br />
-    <span>Friend </span> @Html.CheckBoxFor(model => model.Selected)
-    <br />
-    <span>Teste </span> @Html.CheckBoxFor(model => model.Selected)
+@using(Html.BeginForm("Index2", "FirstFriend", FormMethod.Post)) {
+    
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>Lista</tr>
+        </thead>
+        <tbody>
+            @foreach(var friend in (IEnumerable<FriendViewModel>)TempData.Peek("Friends")) {
+                <tr>
+                    <td>@Html.CheckBox("templateId", new { value = friend.Selected })</td>
+                    <td> @friend.Name </td>
+                    <td> @friend.Email </td>
+                    <td> @friend.BirthDate </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="form-group">        
+        <input type="submit" value="Próximo" class="btn btn-default" />        
+    </div>
 }
 
 
-<a class="btn btn-link" href="../SecondFriend/Index">Segunda pagina</a>

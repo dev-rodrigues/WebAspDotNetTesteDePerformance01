@@ -30,8 +30,9 @@ namespace WebMvc.Controllers {
                     var responseContent = await response.Content.ReadAsStringAsync();
 
                     friends = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
-                    
+
                     ViewBag.Friends = friends;
+                    TempData["Friends"] = friends;
                     list = friends;
                 }
                 return View();
@@ -40,26 +41,26 @@ namespace WebMvc.Controllers {
 
         [HttpPost]
         public ActionResult Index(List<FriendViewModel> lista, FormCollection form) {
-            var selected = form["Selected"].Split(',');
 
-            List<FriendViewModel> newList = new List<FriendViewModel>();
+            var list = TempData["Friends"] as List<FriendViewModel>;
 
-            for(int i = 0; i < selected.Length; i++) {
-                foreach(FriendViewModel f in list) {
-                    if(selected[i].Equals("true")) {
-                        f.Selected = true;
-                    } else {
-                        f.Selected = false;
-                    }
-                    newList.Add(f);
-                }
-            }
+            TempData.Remove("Friends");
+            TempData["Friends"] = list;
 
-            ViewBag.Friends = newList;
-
-            return View();
+            return RedirectToAction("Index", "SecondFriend");
         }
 
-        
+        [HttpPost]
+        public ActionResult Index2(List<FriendViewModel> lista, FormCollection form) {
+
+            var list = TempData["Friends"] as List<FriendViewModel>;
+
+            TempData.Remove("Friends");
+            TempData["Friends"] = list;
+
+            return RedirectToAction("Index", "FirstFriend");
+        }
+
+
     }
 }

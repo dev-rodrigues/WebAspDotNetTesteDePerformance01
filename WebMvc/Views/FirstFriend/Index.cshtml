@@ -1,23 +1,22 @@
 ﻿@using WebMvc.Models
 @model IEnumerable<WebMvc.Models.FriendViewModel>
 
-@{    
-    var listaPessoas = ViewBag.Friends;
-}
+@*@{
+        var listaPessoas = ViewBag.Friends;
+    }*@
 
 <h2>Primeiro Formulario</h2>
 
 @using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post)) {
-    <b>Lista</b>
-    
+
     <table class="table table-condensed table-hover">
         <thead>
             <tr>Lista</tr>
         </thead>
         <tbody>
-            @foreach(var friend in listaPessoas) {
+            @foreach(var friend in (IEnumerable<FriendViewModel>)TempData.Peek("Friends")) {
                 <tr>
-                    <td> @Html.CheckBox("Selected", $"{friend.Selected}") </td>
+                    <td>@Html.CheckBox("templateId", new { value = friend.Selected })</td>
                     <td> @friend.Name </td>
                     <td> @friend.LastName </td>
                     <td> @friend.Email </td>
@@ -27,9 +26,7 @@
     </table>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Salvar" class="btn btn-default" />
-        </div>
+        <input type="submit" value="Próximo" class="btn btn-default" />
     </div>
 }
 
