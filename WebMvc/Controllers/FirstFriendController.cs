@@ -29,16 +29,18 @@ namespace WebMvc.Controllers {
                     var responseContent = await response.Content.ReadAsStringAsync();
 
                     friends = JsonConvert.DeserializeObject<List<FriendViewModel>>(responseContent);
-
+                    //TempData["Friends"] = friends;
+                    ViewBag.Friends = friends;
+                    
                 }
                 return View();
             }
         }
 
         [HttpPost]
-        public ActionResult Index(FriendViewModel friend) {
+        public ActionResult Index(List<FriendViewModel> lista, FormCollection form) {
 
-            ViewBag.Selected = friend.Selected;
+            
 
             return View();
         }
