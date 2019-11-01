@@ -9,18 +9,21 @@
 
 @using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post)) {
 
-    <table class="table table-condensed table-hover">
+    <table name="lista" class="table table-condensed table-hover">
         <thead>
             <tr>Lista</tr>
         </thead>
         <tbody>
+            @{ int i = 0;
+            }
             @foreach(var friend in (IEnumerable<FriendViewModel>)TempData.Peek("Friends")) {
                 <tr>
-                    <td>@Html.CheckBox("templateId", new { value = friend.Selected })</td>
+                    <td><input type="checkbox" name="lista[@i].Selected" checked="@friend.Selected" /></td>
                     <td> @friend.Name </td>
                     <td> @friend.LastName </td>
                     <td> @friend.Email </td>
                 </tr>
+                i++;
             }
         </tbody>
     </table>

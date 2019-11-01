@@ -39,6 +39,7 @@ namespace WebMvc.Controllers {
         public ActionResult Index(List<FriendViewModel> lista, FormCollection form) {
             var list = TempData["Friends"] as List<FriendViewModel>;
 
+            
             TempData.Remove("Friends");
             TempData["Friends"] = list;
 

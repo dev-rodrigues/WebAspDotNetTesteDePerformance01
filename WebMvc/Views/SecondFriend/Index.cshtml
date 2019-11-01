@@ -8,25 +8,29 @@
 <h2>Segundo Formulario</h2>
 
 @using(Html.BeginForm("Index2", "FirstFriend", FormMethod.Post)) {
-    
+
     <table class="table table-condensed table-hover">
         <thead>
             <tr>Lista</tr>
         </thead>
         <tbody>
+            @{
+                int i = 0;
+            }
             @foreach(var friend in (IEnumerable<FriendViewModel>)TempData.Peek("Friends")) {
                 <tr>
-                    <td>@Html.CheckBox("templateId", new { value = friend.Selected })</td>
+                    <td><input type="checkbox" name="lista[@i].Selected" checked=@friend.Selected /></td>
                     <td> @friend.Name </td>
                     <td> @friend.Email </td>
                     <td> @friend.BirthDate </td>
                 </tr>
+                i++;
             }
         </tbody>
     </table>
 
-    <div class="form-group">        
-        <input type="submit" value="Próximo" class="btn btn-default" />        
+    <div class="form-group">
+        <input type="submit" value="Próximo" class="btn btn-default" />
     </div>
 }
 
