@@ -1,4 +1,5 @@
 ﻿using Core.Interface;
+using Core.Service;
 using Data.Persistence;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,14 @@ namespace API.Models {
             [typeof(IFriend)] = typeof(FriendImpl)
         };
 
+        private static Dictionary<Type, Type> livroDb = new Dictionary<Type, Type> {
+            [typeof(ILivro)] = typeof(LivroImpl)
+        };
+
         internal static T GetInstanceOf<T>() {
+            return Activator.CreateInstance<T>();
+        }
+        internal static T InstanciarLivros<T>() {
             return Activator.CreateInstance<T>();
         }
     }

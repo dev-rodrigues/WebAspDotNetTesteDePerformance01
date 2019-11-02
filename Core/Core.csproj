@@ -51,9 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Livro.cs" />
     <Compile Include="Service\IFriend.cs" />
     <Compile Include="Model\Friend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ILivro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

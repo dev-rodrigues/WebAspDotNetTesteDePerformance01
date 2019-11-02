@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Context\DataBaseContext.cs" />
     <Compile Include="Persistence\FriendImpl.cs" />
+    <Compile Include="Persistence\LivroImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

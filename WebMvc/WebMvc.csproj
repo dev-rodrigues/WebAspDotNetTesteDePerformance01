@@ -125,11 +125,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FirstFriendController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Controllers\SecondFriendController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FriendViewModel.cs" />
+    <Compile Include="Models\LivroViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +172,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\FirstFriend\Index.cshtml" />
     <Content Include="Views\SecondFriend\Index.cshtml" />
+    <Content Include="Views\Livro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

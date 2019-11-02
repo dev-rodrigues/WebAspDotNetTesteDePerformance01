@@ -7,8 +7,7 @@
 
 <h2>Primeiro Formulario</h2>
 
-@using(Html.BeginForm("Index", "FirstFriend", FormMethod.Post)) {
-
+<form action="/FirstFriend/Index", method="post">
     <table name="lista" class="table table-condensed table-hover">
         <thead>
             <tr>Lista</tr>
@@ -31,6 +30,7 @@
     <div class="form-group">
         <input type="submit" value="Próximo" class="btn btn-default" />
     </div>
-}
+</form>
+
 
 

@@ -11,5 +11,9 @@ namespace Data.Context {
         public DbSet<Friend> Friends {
             get; set;
         }
+
+        public DbSet<Livro> Livros {
+            get; set;
+        }
     }
 }
